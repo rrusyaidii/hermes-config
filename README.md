@@ -1,20 +1,19 @@
 # Hermes Config — @rrusyaidii
 
-Personal Hermes Agent configuration backup, including memory (user profile, persistent notes), installed skills, config, and SOUL definition.
+Full Hermes Agent configuration backup (config, memory, installed skills, SOUL).
+
+> **Nak yang ringan?** Guna [hermes-memory](https://github.com/rrusyaidii/hermes-memory) — memory, SOUL, config je. Takde skill files, senang clone.
 
 ## Structure
 
 ```
 hermes-config/
-├── config/
-│   └── config.yaml          # Main Hermes configuration
+├── config/config.yaml       # Main Hermes configuration
 ├── memory/
 │   ├── MEMORY.md            # Agent persistent notes (PC specs, guardrails)
 │   └── USER.md              # User profile (Haziq Rusyaidi)
-├── skills/                   # Installed skills (categories)
-├── cron/                     # Cron job output
-├── hooks/                    # Webhook configurations
-├── .env.example              # Template for secrets (copy to ~/.hermes/.env)
+├── skills/                   # Installed skills (500+ files by category)
+├── .env.example              # Template for secrets
 ├── .gitignore
 ├── SOUL.md                   # Agent identity definition
 └── README.md
@@ -23,21 +22,21 @@ hermes-config/
 ## Setup
 
 ```bash
-# Clone
-git clone https://github.com/rrusyaidii/hermes-config.git ~/hermes-config
+git clone https://github.com/rrusyaidii/hermes-config.git
+```
 
-# Copy config & memory to Hermes home
-cp -r hermes-config/config/* ~/AppData/Local/hermes/
-cp -r hermes-config/memory/* ~/AppData/Local/hermes/memories/
+Kalau nak guna kat PC baru:
+```bash
+# Copy memory & config
+cp hermes-config/memory/* ~/AppData/Local/hermes/memories/
 cp hermes-config/SOUL.md ~/AppData/Local/hermes/
-
-# Set up secrets
+# Setup secrets
 cp hermes-config/.env.example ~/AppData/Local/hermes/.env
-# Edit .env with your actual API keys
+# Edit .env dengan API keys korang
 ```
 
 ## Notes
 
-- Secrets (API keys, tokens) are NOT committed — use `.env` for those.
-- Memory files contain PC specs, user profile, and guardrails.
-- Skills are bundled/categorized under `skills/`.
+- Secrets (API keys, tokens) are NOT committed — use `.env`.
+- Skills included for full restore but Hermes bundles them already.
+- For lightweight memory-only sync, use `hermes-memory`.
